@@ -16,12 +16,4 @@ public class Cliente{
         this.devolucao_Dias = devolucao_Dias;
     }
 
-    void AddLocacao(){
-        qtdLocacoes += 1;        
-    } 
-
-    int QtdLocacoes(){
-        return qtdLocacoes;
-    }
-
 }
