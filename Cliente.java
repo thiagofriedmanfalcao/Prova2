@@ -6,7 +6,7 @@ public class Cliente{
     Date dt_Nascimento;
     String cpf;
     int devolucao_Dias;
-    int qtdLocacoes;
+    int qtdFilmesLocados;
 
     Cliente(int idCliente, String nome, Date dt_Nascimento, String cpf, int devolucao_Dias){
         this.idCliente      = idCliente;
@@ -14,6 +14,10 @@ public class Cliente{
         this.dt_Nascimento  = dt_Nascimento;
         this.cpf            = cpf;
         this.devolucao_Dias = devolucao_Dias;
+    }
+
+    public void AddFilmesLocados(int qtd){
+        qtdFilmesLocados += qtd;
     }
 
 }

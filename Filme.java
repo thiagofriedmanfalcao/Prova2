@@ -1,4 +1,4 @@
-import java.sql.Date;
+import java.util.Date;
 
 public class Filme{
     int idFilme;
@@ -18,6 +18,9 @@ public class Filme{
         this.estoque        = estoque;
     }
 
-    
+
+    public void AddQtdDeLocacoes(int qtd){
+        qtdLocacoes += qtd;
+    }    
 
 }
