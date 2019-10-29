@@ -6,7 +6,6 @@ public class Cliente{
     Date dt_Nascimento;
     String cpf;
     int devolucao_Dias;
-    int qtdLocacoes;
 
     Cliente(int idCliente, String nome, Date dt_Nascimento, String cpf, int devolucao_Dias){
         this.idCliente      = idCliente;

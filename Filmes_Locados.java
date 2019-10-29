@@ -6,7 +6,7 @@ public class Filmes_Locados{
     List<Filme> filmes = new ArrayList<Filme>();
 
     Filmes_Locados(Locacao objLocacao, List<Filme> listFilmes){
-        this.locacoes.add(objLocacao);
+        this.locacoes = objLocacao;
         this.filmes.addAll(listFilmes);
     }
 }

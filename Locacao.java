@@ -6,21 +6,14 @@ public class Locacao{
     int idLocacao;
     Date dt_Locacao;
     Date dt_Devolucao;
-    List<Cliente> clientes = new ArrayList<>();
-    List<Filmes_Locados> filmesLocados = new ArrayList<>();    
-    
-    Locacao(int idLocacao, Date dt_Locacao, Date dt_Devolucao){
+    Cliente cli_Locacao;
+    Filmes_Locados filmesLocados;
+
+    Locacao(int idLocacao, Date dt_Locacao, Date dt_Devolucao, Cliente objCliente, List<Filme> listFilmes){
         this.idLocacao      = idLocacao;
         this.dt_Locacao     = dt_Locacao;
         this.dt_Devolucao   = dt_Devolucao;
+        this.cli_Locacao    = objCliente;
+        this.filmesLocados  = new Filmes_Locados(this, listFilmes);
     }
-
-    void adicionarCliente(Cliente objCliente){
-        this.clientes.add(objCliente);
-    }
-
-    void adicionarFilmesLocados(Locacao objLocacao, List<Filme> listFilmes){
-        this.filmesLocados = new Filmes_Locados(objLocacao, listFilmes);
-    }    
-
 }
