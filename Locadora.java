@@ -30,27 +30,80 @@ public class Locadora{
         Filme Filme9  = new Filme(9, "Star Wars", new Locadora().FormataData("2011-11-23"), "Aventura", 27.8, 20);
         Filme Filme10 = new Filme(10, "Fargo", new Locadora().FormataData("2011-12-27"), "Musical", 19.23, 20);
 
-        List<Filme> filmesLocados = new ArrayList<>();    
-        filmesLocados.add(Filme1);
-        filmesLocados.add(Filme3);
-        filmesLocados.add(Filme10);
-        Locacao Locacao1 = new Locacao(1, new Locadora().FormataData("2019-10-28"), new Locadora().FormataData("2019-11-10"), Cliente1, filmesLocados);
+        Date dataAtual = new Date(System.currentTimeMillis());
 
-        filmesLocados = new ArrayList<>();
+        List<Filme> filmesLocados = new ArrayList<Filme>();    
+        filmesLocados.add(Filme1);
+        filmesLocados.add(Filme10);
+        Locacao Locacao1 = new Locacao(1, dataAtual, new Locadora().CalculaDtDevolucao(Cliente1.devolucao_Dias), Cliente1, filmesLocados);
+
+        filmesLocados = new ArrayList<Filme>();    
+        filmesLocados.add(Filme3);
+        filmesLocados.add(Filme8);
+        Locacao Locacao2 = new Locacao(1, dataAtual, new Locadora().CalculaDtDevolucao(Cliente1.devolucao_Dias), Cliente1, filmesLocados);
+
+        filmesLocados = new ArrayList<Filme>();
         filmesLocados.add(Filme5);
         filmesLocados.add(Filme4);
         filmesLocados.add(Filme3);
-        Locacao Locacao2 = new Locacao(1, new Locadora().FormataData("2019-10-28"), new Locadora().FormataData("2019-11-10"), Cliente3, filmesLocados);
+        Locacao Locacao3 = new Locacao(1, dataAtual, new Locadora().CalculaDtDevolucao(Cliente3.devolucao_Dias), Cliente3, filmesLocados);
 
-        filmesLocados = new ArrayList<>();
+        filmesLocados = new ArrayList<Filme>();
         filmesLocados.add(Filme5);
         filmesLocados.add(Filme10);
         filmesLocados.add(Filme1);
-        Locacao Locacao3 = new Locacao(1, new Locadora().FormataData("2019-10-28"), new Locadora().FormataData("2019-11-10"), Cliente5, filmesLocados);
+        filmesLocados.add(Filme8);       
+        filmesLocados.add(Filme3);                 
+        Locacao Locacao4 = new Locacao(1, dataAtual, new Locadora().CalculaDtDevolucao(Cliente5.devolucao_Dias), Cliente5, filmesLocados);        
 
+        filmesLocados = new ArrayList<Filme>();
+        filmesLocados.add(Filme7);
+        filmesLocados.add(Filme9);                 
+        Locacao Locacao5 = new Locacao(1, dataAtual, new Locadora().CalculaDtDevolucao(Cliente5.devolucao_Dias), Cliente5, filmesLocados);        
         
+        msg.println("***Quantidade de Filmes locados por cada cliente***");
+        msg.println("Cliente: " + Cliente1.nome + " alugou " + Cliente1.qtdFilmesLocados + " filmes");
+        msg.println("Cliente: " + Cliente2.nome + " alugou " + Cliente2.qtdFilmesLocados + " filmes");
+        msg.println("Cliente: " + Cliente3.nome + " alugou " + Cliente3.qtdFilmesLocados + " filmes");
+        msg.println("Cliente: " + Cliente4.nome + " alugou " + Cliente4.qtdFilmesLocados + " filmes");
+        msg.println("Cliente: " + Cliente5.nome + " alugou " + Cliente5.qtdFilmesLocados + " filmes");           
+        
+        msg.println("***Quantidade de Filmes por Locação***");        
+        msg.println("Locação 1: " + Locacao1.qtdFilmesPorLocacao + " filmes");        
+        msg.println("Locação 2: " + Locacao2.qtdFilmesPorLocacao + " filmes");        
+        msg.println("Locação 3: " + Locacao3.qtdFilmesPorLocacao + " filmes");        
+        msg.println("Locação 4: " + Locacao4.qtdFilmesPorLocacao + " filmes");        
+        msg.println("Locação 5: " + Locacao5.qtdFilmesPorLocacao + " filmes");        
+
+        msg.println("***Valor Total por Locação***");        
+        msg.println("Locação 1: " + Locacao1.vlrTotPorLocacao + " filmes");        
+        msg.println("Locação 2: " + Locacao2.vlrTotPorLocacao + " filmes");        
+        msg.println("Locação 3: " + Locacao3.vlrTotPorLocacao + " filmes");        
+        msg.println("Locação 4: " + Locacao4.vlrTotPorLocacao + " filmes");        
+        msg.println("Locação 5: " + Locacao5.vlrTotPorLocacao + " filmes");        
+
+        msg.println("***Quantidade de Locações por Filme***");        
+        msg.println("Filme " + Filme1.nome + " foi locado " + Filme1.qtdLocacoes);
+        msg.println("Filme " + Filme2.nome + " foi locado " + Filme2.qtdLocacoes);
+        msg.println("Filme " + Filme3.nome + " foi locado " + Filme3.qtdLocacoes);
+        msg.println("Filme " + Filme4.nome + " foi locado " + Filme4.qtdLocacoes);
+        msg.println("Filme " + Filme5.nome + " foi locado " + Filme5.qtdLocacoes);
+        msg.println("Filme " + Filme6.nome + " foi locado " + Filme6.qtdLocacoes);
+        msg.println("Filme " + Filme7.nome + " foi locado " + Filme7.qtdLocacoes);
+        msg.println("Filme " + Filme8.nome + " foi locado " + Filme8.qtdLocacoes);
+        msg.println("Filme " + Filme9.nome + " foi locado " + Filme9.qtdLocacoes);
+        msg.println("Filme " + Filme10.nome + " foi locado " + Filme10.qtdLocacoes);
+
     }
 
+    public Date CalculaDtDevolucao(int devDias){
+        Date dtDevolucao = new Date();
+        Calendar cal = Calendar.getInstance(); 
+        cal.setTime(dtDevolucao); 
+        cal.add(Calendar.DATE, devDias);
+        dtDevolucao = cal.getTime();      
+        return dtDevolucao;    
+    }
 
     public Date FormataData(String dateString){
         Date data = new Date();

@@ -18,6 +18,9 @@ public class Filme{
         this.estoque        = estoque;
     }
 
-    
+
+    public void AddQtdDeLocacoes(int qtd){
+        qtdLocacoes += qtd;
+    }    
 
 }
